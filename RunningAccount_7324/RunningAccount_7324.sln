@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunningAccount_7324", "RunningAccount_7324\RunningAccount_7324.csproj", "{D0BE41B3-C2A2-430E-B52C-61790BE5F258}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dal", "dal\dal.csproj", "{4295E0FE-5222-442E-A0C9-3193047C1B93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "modols", "modols\modols.csproj", "{DCD04FB7-F86D-4DA3-97D6-923F427CFC51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D0BE41B3-C2A2-430E-B52C-61790BE5F258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0BE41B3-C2A2-430E-B52C-61790BE5F258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0BE41B3-C2A2-430E-B52C-61790BE5F258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4295E0FE-5222-442E-A0C9-3193047C1B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4295E0FE-5222-442E-A0C9-3193047C1B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4295E0FE-5222-442E-A0C9-3193047C1B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4295E0FE-5222-442E-A0C9-3193047C1B93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD04FB7-F86D-4DA3-97D6-923F427CFC51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD04FB7-F86D-4DA3-97D6-923F427CFC51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD04FB7-F86D-4DA3-97D6-923F427CFC51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD04FB7-F86D-4DA3-97D6-923F427CFC51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
