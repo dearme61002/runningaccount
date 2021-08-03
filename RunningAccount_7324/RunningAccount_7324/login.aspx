@@ -18,7 +18,8 @@
                     <li class="list-group-item"><span class="ml-5 mr-3">PWD  :</span><asp:TextBox ID="PWDTextBox2" runat="server"></asp:TextBox></li>
                   
                 </ul>
-                <asp:Button ID="LoginButton1" runat="server" Text="Login" class="btn btn-dark"/>
+                <asp:Button ID="LoginButton1" runat="server" Text="Login" class="btn btn-dark" OnClick="LoginButton1_Click"/>
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
             </div>
             </div>
 </asp:Content>

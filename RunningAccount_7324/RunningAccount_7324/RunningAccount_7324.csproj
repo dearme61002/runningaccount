@@ -105,12 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="backendweb\UserInfo.aspx" />
-    <Content Include="backendweb\AccountingList.aspx" />
-    <Content Include="backendweb\AccountingDetail.aspx" />
-    <Content Include="backendweb\UserList.aspx" />
-    <Content Include="backendweb\UserDetail.aspx" />
-    <Content Include="backendweb\UserPassword.aspx" />
+    <Content Include="SysadmAdmin\UserInfo.aspx" />
+    <Content Include="SysadmAdmin\AccountingList.aspx" />
+    <Content Include="SysadmAdmin\AccountingDetail.aspx" />
+    <Content Include="SysadmAdmin\UserList.aspx" />
+    <Content Include="SysadmAdmin\UserDetail.aspx" />
+    <Content Include="SysadmAdmin\UserPassword.aspx" />
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-grid.min.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
@@ -270,46 +270,46 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="backendweb\UserInfo.aspx.cs">
+    <Compile Include="SysadmAdmin\UserInfo.aspx.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\UserInfo.aspx.designer.cs">
+    <Compile Include="SysadmAdmin\UserInfo.aspx.designer.cs">
       <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\AccountingList.aspx.cs">
+    <Compile Include="SysadmAdmin\AccountingList.aspx.cs">
       <DependentUpon>AccountingList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\AccountingList.aspx.designer.cs">
+    <Compile Include="SysadmAdmin\AccountingList.aspx.designer.cs">
       <DependentUpon>AccountingList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\AccountingDetail.aspx.cs">
+    <Compile Include="SysadmAdmin\AccountingDetail.aspx.cs">
       <DependentUpon>AccountingDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\AccountingDetail.aspx.designer.cs">
+    <Compile Include="SysadmAdmin\AccountingDetail.aspx.designer.cs">
       <DependentUpon>AccountingDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\UserList.aspx.cs">
+    <Compile Include="SysadmAdmin\UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\UserList.aspx.designer.cs">
+    <Compile Include="SysadmAdmin\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\UserDetail.aspx.cs">
+    <Compile Include="SysadmAdmin\UserDetail.aspx.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\UserDetail.aspx.designer.cs">
+    <Compile Include="SysadmAdmin\UserDetail.aspx.designer.cs">
       <DependentUpon>UserDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\UserPassword.aspx.cs">
+    <Compile Include="SysadmAdmin\UserPassword.aspx.cs">
       <DependentUpon>UserPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\UserPassword.aspx.designer.cs">
+    <Compile Include="SysadmAdmin\UserPassword.aspx.designer.cs">
       <DependentUpon>UserPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">

@@ -168,6 +168,7 @@ namespace dal
         public static SqlDataReader executeReadesql(string sqlOrprocedure, SqlParameter[] param, bool isProcedure)
         {
             try
+   
             {
                 SqlConnection con = new SqlConnection(connstring);
 
@@ -184,9 +185,6 @@ namespace dal
                 con.Open();
                 command.Parameters.AddRange(param);
                 return command.ExecuteReader(CommandBehavior.CloseConnection);
-
-
-
 
             }
             catch (Exception ex)
