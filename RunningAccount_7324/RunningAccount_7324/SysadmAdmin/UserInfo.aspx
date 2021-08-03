@@ -22,15 +22,17 @@
                <h1>個人資訊</h1>
                 <div>
                            <%--   加入資料表--%>
-                    <asp:Repeater ID="Repeater2" runat="server">
-                    <HeaderTemplate>
-                <table>
+                    <asp:Repeater ID="Repeater2" runat="server" >
+                    <ItemTemplate>
+                <table class="table table-striped">
                     <tr>
                          <td>
                            帳號
                         </td>
+
                          <td>
-                         
+                               <%#Eval("account")%>
+                        
                          </td>
                     </tr>
                     <tr>
@@ -38,7 +40,8 @@
                            姓名
                         </td>
                          <td>
-                         
+                     
+                             <%#Eval("name")%>
                          </td>
                     </tr>
            <tr>
@@ -46,11 +49,12 @@
                            EMAIL
                         </td>
                          <td>
-                         
+                             <%#Eval("email")%>
+                   
                          </td>
                     </tr>
            
-            </HeaderTemplate>
+        </ItemTemplate>
             
                     </asp:Repeater>
                      <asp:Button ID="Button2" runat="server" Text="登出" OnClick="Button2_Click" />

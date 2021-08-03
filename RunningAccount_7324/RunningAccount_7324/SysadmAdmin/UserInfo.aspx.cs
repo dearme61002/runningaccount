@@ -21,6 +21,11 @@ namespace RunningAccount_7324.backendweb
                 }
                 modols.UserInfo userInfo = (modols.UserInfo)Session["currentuser"];
                 this.Literal1Logined.Text = "<span class='text-white'>歡迎你的登入" + userInfo.name+ "先生/小姊</span>";
+                //傳資料
+                List<modols.UserInfo> userdata =  new  List<modols.UserInfo>();
+                userdata.Add(userInfo);
+                this.Repeater2.DataSource = userdata;
+                this.Repeater2.DataBind();
             }
 
         }
@@ -30,5 +35,7 @@ namespace RunningAccount_7324.backendweb
             Session["currentuser"] = null;
             Response.Redirect("~/Login.aspx");
         }
+
+     
     }
 }
