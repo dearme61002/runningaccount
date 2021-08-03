@@ -17,17 +17,51 @@
                 <div class="my-4"> <asp:LinkButton ID="LinkButton1" runat="server">個人資訊</asp:LinkButton></div>
                 <div class="my-4"><asp:LinkButton ID="LinkButton2" runat="server">流水帳管理</asp:LinkButton></div>
                 <div class="my-4"> <asp:LinkButton ID="LinkButton3" runat="server">會員管理</asp:LinkButton></div>
-             
-            </div>
+          </div>
             <div class="col-9">
                <h1>個人資訊</h1>
-             <%--   加入資料表--%>
                 <div>
-                    <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>
+                           <%--   加入資料表--%>
+                    <asp:Repeater ID="Repeater2" runat="server">
+                    <HeaderTemplate>
+                <table>
+                    <tr>
+                         <td>
+                           帳號
+                        </td>
+                         <td>
+                         
+                         </td>
+                    </tr>
+                    <tr>
+                         <td>
+                           姓名
+                        </td>
+                         <td>
+                         
+                         </td>
+                    </tr>
+           <tr>
+                         <td>
+                           EMAIL
+                        </td>
+                         <td>
+                         
+                         </td>
+                    </tr>
+           
+            </HeaderTemplate>
+            
+                    </asp:Repeater>
+                     <asp:Button ID="Button2" runat="server" Text="登出" OnClick="Button2_Click" />
                 </div>
-                 <%--   加入資料表--%>
-                <asp:Button ID="sumitButton1" runat="server" Text="送出" />
-            </div>
-        </div>
+                </div>
+             <%--   加入資料表--%>
+           
+       
+                
+      
+     
     </div>
+        </div>
 </asp:Content>

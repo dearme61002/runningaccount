@@ -12,7 +12,7 @@ namespace dal
     {
         public modols.UserInfo login(modols.UserInfo objectUserInfo)
         {
-            string sql = "select Name from UserInfo  where Account= @account and PWD = @pwd";
+            string sql = "select Name,Account,Email from UserInfo  where Account= @account and PWD = @pwd";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@account",objectUserInfo.account.ToString()),
@@ -25,6 +25,8 @@ namespace dal
                 if (sr.Read())
                 {
                     objectUserInfo.name = sr["Name"].ToString();
+                    objectUserInfo.email = sr["Email"].ToString();
+                    objectUserInfo.account = sr["Account"].ToString();
                         
                 }
                 else
