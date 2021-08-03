@@ -67,17 +67,17 @@
                             Desc
                         </div>
                         <div class="col-9">
-                            <textarea id="TextArea1" cols="20" rows="2"></textarea>
-                        </div>
+                            <asp:TextBox ID="TextBox3" runat="server" TextMode="MultiLine"></asp:TextBox>
+                           </div>
             </div>
                     </div>
            
                 <%--   加入資料表--%>
                 <div class="mt-3">
                 <span class="mr-3">
-                    <asp:Button ID="saveButton1" runat="server" Text="Save" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" /></span></div>
+                    <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" /></span></div>
             </div>
         </div>
         </div>
-   </div>
+   
 </asp:Content>

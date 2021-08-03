@@ -73,7 +73,7 @@ namespace dal
                     }
                     else
                     {
-                        accountNote.acttype = "收出";
+                        accountNote.acttype = "收入";
                     }
                     accountNote.createdate = Convert.ToDateTime(sr["CreateDate"]);
                     accountNote.body = sr["Body"].ToString();
@@ -90,7 +90,31 @@ namespace dal
             return allAccountNote;
         }
 
-    
+    public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote)
+        {
+            string sql = "insert into AccountingNote(UserID,Caption,Amount,ActType,Body) values(@userid,@caption,@amount,@ActType,@Body)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@userid",objectAccountNote.userid),
+                new SqlParameter("@caption",objectAccountNote.caption),
+                new SqlParameter("@amount",objectAccountNote.amount),
+                new SqlParameter("@ActType",objectAccountNote.acttype),
+                new SqlParameter("@Body",objectAccountNote.body)
+            };
+            try
+            {
+             return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
 
     }
+
+
 }

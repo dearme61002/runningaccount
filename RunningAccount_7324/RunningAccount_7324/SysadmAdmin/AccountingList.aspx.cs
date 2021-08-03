@@ -30,7 +30,15 @@ namespace RunningAccount_7324.backendweb
                     int allcount = 0;
                     foreach (var item in objectallaccountNote)
                     {
-                        allcount += item.amount;
+                        if (item.acttype == "收入")
+                        {
+                           allcount += item.amount;
+                        }
+                        else
+                        {
+                            allcount -= item.amount;
+                        }
+                       
                     }
                     this.Literal1.Text ="<span>"+allcount+"</span>" ;
                 }
