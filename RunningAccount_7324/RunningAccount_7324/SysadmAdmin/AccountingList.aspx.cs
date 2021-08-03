@@ -61,5 +61,10 @@ namespace RunningAccount_7324.backendweb
             modols.UserInfo userInfo = (modols.UserInfo)Session["currentuser"];
             Response.Redirect("~/SysadmAdmin/AccountingDetail.aspx?id="+userInfo.id+"&type=0");
         }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

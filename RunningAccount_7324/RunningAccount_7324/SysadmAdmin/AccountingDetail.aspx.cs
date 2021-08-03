@@ -30,6 +30,7 @@ namespace RunningAccount_7324.backendweb
                 }
                 else
                 {
+                    this.deleteButton2.Visible = true;
                     SqlDataReader sr = new dal.ServicUser().getnotebyid(Convert.ToInt32(Request.QueryString["id"]));
                     try
                     {
@@ -101,6 +102,27 @@ namespace RunningAccount_7324.backendweb
                 }
             }
 
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/UserInfo.aspx");
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/UserList.aspx");
+        }
+
+        protected void deleteButton2_Click(object sender, EventArgs e)
+        {
+          int result=  new dal.ServicUser().delectnotebyid(Convert.ToInt32(Request.QueryString["id"]));
+            if (result >0){
+                Response.Redirect("~/SysadmAdmin/AccountingList.aspx");
+            }else
+            {
+                this.Literal1.Text = "刪除資料失敗請重新開啟網站";
+            }
         }
     }
 }

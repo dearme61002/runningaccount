@@ -51,7 +51,7 @@ namespace dal
 
         public List<modols.AccountNote>   getAccountallNotebyuserid(string id)
         {
-            string sql = "select UserID,Caption,Amount,ActType,CreateDate,Body,ID from AccountingNote where UserID=@userid";
+            string sql = "select UserID,Caption,Amount,ActType,CreateDate,Body,ID from AccountingNote where UserID=@userid order by CreateDate desc";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@userid",id)
@@ -107,6 +107,24 @@ namespace dal
 
                 throw;
             }
+        }
+        public int delectnotebyid(int id)
+        {
+            string sql = "delete from AccountingNote where ID=@id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id",id)
+            };
+            try
+            {
+             return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote )
         {

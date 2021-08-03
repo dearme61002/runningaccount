@@ -8,13 +8,13 @@
         <div class="row mt-5">
             <div class="col-3">
                 <div class="my-4">
-                    <asp:LinkButton ID="LinkButton1" runat="server">個人資訊</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">個人資訊</asp:LinkButton>
                 </div>
                 <div class="my-4">
                     <asp:LinkButton ID="LinkButton2" runat="server">流水帳管理</asp:LinkButton>
                 </div>
                 <div class="my-4">
-                    <asp:LinkButton ID="LinkButton3" runat="server">會員管理</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">會員管理</asp:LinkButton>
                 </div>
 
             </div>
@@ -75,7 +75,7 @@
                 <%--   加入資料表--%>
                 <div class="mt-3">
                 <span class="mr-3">
-                    <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" /></span></div>
+                    <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" OnClick="deleteButton2_Click" /></span></div>
             </div>
         </div>
         </div>
