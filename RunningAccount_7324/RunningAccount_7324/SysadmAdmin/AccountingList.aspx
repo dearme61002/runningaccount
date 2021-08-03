@@ -32,7 +32,8 @@
                             <asp:BoundField DataField="acttype" HeaderText="收/支" />
                             <asp:BoundField DataField="amount" HeaderText="金額" />
                             <asp:BoundField DataField="caption" HeaderText="標題" />
-                            <asp:HyperLinkField DataNavigateUrlFields="userid" DataNavigateUrlFormatString="~/SysadmAdmin/AccountingDetail.aspx?id={0}&amp;type=1" HeaderText="Act" Text="Edit" />
+                            <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="~/SysadmAdmin/AccountingDetail.aspx?id={0}&amp;type=1" HeaderText="Act" Text="Edit" />
+                            <asp:BoundField DataField="id" HeaderText="id" Visible="False" />
                         </Columns>
                     </asp:GridView>
                 </div>

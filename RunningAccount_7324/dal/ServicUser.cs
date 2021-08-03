@@ -51,7 +51,7 @@ namespace dal
 
         public List<modols.AccountNote>   getAccountallNotebyuserid(string id)
         {
-            string sql = "select UserID,Caption,Amount,ActType,CreateDate,Body from AccountingNote where UserID=@userid";
+            string sql = "select UserID,Caption,Amount,ActType,CreateDate,Body,ID from AccountingNote where UserID=@userid";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@userid",id)
@@ -66,6 +66,7 @@ namespace dal
                     modols.AccountNote accountNote = new AccountNote();
                     accountNote.caption = sr["Caption"].ToString();
                     accountNote.userid = sr["UserID"].ToString();
+                    accountNote.id = Convert.ToInt32(sr["ID"]);
                     accountNote.amount = Convert.ToInt32(sr["Amount"]);
                     if (sr["ActType"].ToString() == "1")
                     {
@@ -90,7 +91,24 @@ namespace dal
             return allAccountNote;
         }
 
-    public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote)
+        public SqlDataReader getnotebyid(int id)
+        {
+            string sql="select Caption,Amount,ActType,Body from AccountingNote where ID=@id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id",id)
+            };
+            try
+            {
+            return  sqlcanhelp.executeReadesql(sql, sqlParameters, false);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+    public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote )
         {
             string sql = "insert into AccountingNote(UserID,Caption,Amount,ActType,Body) values(@userid,@caption,@amount,@ActType,@Body)";
             SqlParameter[] sqlParameters = new SqlParameter[]
@@ -112,6 +130,31 @@ namespace dal
                 throw;
             }
 
+        }
+
+        public int updatenotebyobjectAccountNote(modols.AccountNote accountNote ,int id)
+        {
+            string sql = "update AccountingNote set Caption = @caption, Amount = @amount, ActType = @acttype, Body = @body where ID=@id";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@caption",accountNote.caption),
+                new SqlParameter("@acttype",accountNote.acttype),
+                new SqlParameter("@body",accountNote.body),
+                new SqlParameter("@amount",accountNote.amount),
+             
+                new SqlParameter("@id",id)
+
+            };
+            try
+            {
+             return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using modols;
 using dal;
+using System.Data.SqlClient;
 
 namespace RunningAccount_7324.backendweb
 {
@@ -20,39 +21,86 @@ namespace RunningAccount_7324.backendweb
                     Response.Redirect("~/Login.aspx");
                 }
                 modols.UserInfo userInfo = (modols.UserInfo)Session["currentuser"];
-                this.Literal1.Text = "<span class='text-white'>歡迎你的登入"+ userInfo.name +"先生/小姊</span>";
+                this.Literal1.Text = "<span class='text-white'>歡迎你的登入" + userInfo.name + "先生/小姊</span>";
                 string type = Request.QueryString["type"].ToString();
                 if (type == "0")
                 {
                     saveButton1.Text = "Add";
+                    this.deleteButton2.Visible = false;
                 }
+                else
+                {
+                    SqlDataReader sr = new dal.ServicUser().getnotebyid(Convert.ToInt32(Request.QueryString["id"]));
+                    try
+                    {
+                        if (sr.Read())
+                        {
+                            this.TextBox1.Text = sr["Amount"].ToString();
+                            this.TextBox2.Text = sr["Caption"].ToString();
+                            this.TextBox3.Text = sr["Body"].ToString();
+                            this.DropDownList1.SelectedItem.Value = sr["ActType"].ToString();
+                        }
+                        else
+                        {
+                            this.Literal1.Text = "讀取資料錯誤";
+                        }
+                        sr.Close();
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+
                 //傳資料
-              
+
             }
         }
 
         protected void saveButton1_Click(object sender, EventArgs e)
         {
             modols.AccountNote objectaccountNote = new modols.AccountNote();
-            objectaccountNote.acttype= this.DropDownList1.SelectedItem.Value;
-            objectaccountNote.amount = Convert.ToInt32(this.TextBox1.Text.Trim()) ;
+            objectaccountNote.acttype = this.DropDownList1.SelectedItem.Value;
+            objectaccountNote.amount = Convert.ToInt32(this.TextBox1.Text.Trim());
             objectaccountNote.caption = this.TextBox2.Text.Trim();
             objectaccountNote.body = this.TextBox3.Text.Trim();
             modols.UserInfo userInfo = (modols.UserInfo)Session["currentuser"];
             objectaccountNote.userid = userInfo.id;
-            if (saveButton1.Text== "Add")
+            if (saveButton1.Text == "Add")
             {
-             int  result= new dal.ServicUser().addnotebyobjectAccountNote(objectaccountNote);
+                int result = new dal.ServicUser().addnotebyobjectAccountNote(objectaccountNote);
                 if (result > 0)
                 {
                     Response.Redirect("~/SysadmAdmin/AccountingList.aspx");
                 }
                 else
                 {
-                    this.Literal1.Text = "加入資料失敗請重新增加";
+                    this.Literal1.Text = "加入資料失敗請重新開啟網站";
                 }
 
             }
+            else
+            {
+                try
+                {
+                    int result = new dal.ServicUser().updatenotebyobjectAccountNote(objectaccountNote, Convert.ToInt32(Request.QueryString["id"]));
+                    if (result > 0)
+                    {
+                        Response.Redirect("~/SysadmAdmin/AccountingList.aspx");
+                    }
+                    else
+                    {
+                        this.Literal1.Text = "修改資料失敗請重新開啟網站";
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+
         }
     }
 }
