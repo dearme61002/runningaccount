@@ -106,6 +106,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="backendweb\info.aspx" />
+    <Content Include="backendweb\toolmanage.aspx" />
+    <Content Include="backendweb\toolmanageadd.aspx" />
+    <Content Include="backendweb\user.aspx" />
+    <Content Include="backendweb\useradd.aspx" />
+    <Content Include="backendweb\userpsw.aspx" />
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-grid.min.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
@@ -271,6 +276,41 @@
     </Compile>
     <Compile Include="backendweb\info.aspx.designer.cs">
       <DependentUpon>info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backendweb\toolmanage.aspx.cs">
+      <DependentUpon>toolmanage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backendweb\toolmanage.aspx.designer.cs">
+      <DependentUpon>toolmanage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backendweb\toolmanageadd.aspx.cs">
+      <DependentUpon>toolmanageadd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backendweb\toolmanageadd.aspx.designer.cs">
+      <DependentUpon>toolmanageadd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backendweb\user.aspx.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backendweb\user.aspx.designer.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backendweb\useradd.aspx.cs">
+      <DependentUpon>useradd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backendweb\useradd.aspx.designer.cs">
+      <DependentUpon>useradd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="backendweb\userpsw.aspx.cs">
+      <DependentUpon>userpsw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="backendweb\userpsw.aspx.designer.cs">
+      <DependentUpon>userpsw.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
