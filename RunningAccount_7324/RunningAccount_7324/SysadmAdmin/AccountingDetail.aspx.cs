@@ -11,7 +11,19 @@ namespace RunningAccount_7324.backendweb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["currentuser"] == null)
+                {
+                    Response.Redirect("~/Login.aspx");
+                }
+                modols.UserInfo userInfo = (modols.UserInfo)Session["currentuser"];
+                this.Literal1.Text = "<span class='text-white'>歡迎你的登入"+ userInfo.name +"先生/小姊</span>";
+                //傳資料
+              
+            }
         }
+
+     
     }
 }

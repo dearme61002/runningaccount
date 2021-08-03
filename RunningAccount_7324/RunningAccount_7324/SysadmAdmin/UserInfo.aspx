@@ -15,8 +15,8 @@
         <div class="row mt-5">
             <div class="col-3">
                 <div class="my-4"> <asp:LinkButton ID="LinkButton1" runat="server">個人資訊</asp:LinkButton></div>
-                <div class="my-4"><asp:LinkButton ID="LinkButton2" runat="server">流水帳管理</asp:LinkButton></div>
-                <div class="my-4"> <asp:LinkButton ID="LinkButton3" runat="server">會員管理</asp:LinkButton></div>
+                <div class="my-4"><asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">流水帳管理</asp:LinkButton></div>
+                <div class="my-4"> <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">會員管理</asp:LinkButton></div>
           </div>
             <div class="col-9">
                <h1>個人資訊</h1>
@@ -57,7 +57,7 @@
         </ItemTemplate>
             
                     </asp:Repeater>
-                     <asp:Button ID="Button2" runat="server" Text="登出" OnClick="Button2_Click" />
+                     <asp:Button ID="Button2" OnClientClick="return confirm('你要登出嗎')" runat="server" Text="登出" OnClick="Button2_Click" />
                 </div>
                 </div>
              <%--   加入資料表--%>

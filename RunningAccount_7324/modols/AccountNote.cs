@@ -13,7 +13,7 @@ namespace modols
 
        public  string caption { get; set; }
         public int amount { get; set; }
-        public int acttype { get; set; }
+        public string acttype { get; set; }
         public DateTime createdate { get; set; }
          
         public string body { get; set; }

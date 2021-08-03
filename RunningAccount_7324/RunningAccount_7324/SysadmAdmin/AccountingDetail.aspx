@@ -21,7 +21,8 @@
 
             <div class="col-9">
                 <h1>流水帳管理</h1>
-
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+           
                 <%--   加入資料表--%>
                 <div class="container mt-3">
                     <div class="row">
@@ -29,7 +30,10 @@
                           IN/OUT
                         </div>
                         <div class="col-9">
-                            <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownList1" runat="server">
+                                <asp:ListItem Value="0">收入</asp:ListItem>
+                                <asp:ListItem Value="1">支出</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
 
                     </div>
@@ -38,13 +42,14 @@
                     <div class="row">
                         <div class="col-3">
                           Amount
-                        </div>
-                        <div class="col-9">
+                            </div>
+                          <div class="col-9">
                             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                         </div>
 
                     </div>
                 </div>
+                     
                     <div class="container my-3">
                     <div class="row">
                         <div class="col-3">
@@ -64,9 +69,9 @@
                         <div class="col-9">
                             <textarea id="TextArea1" cols="20" rows="2"></textarea>
                         </div>
-
+            </div>
                     </div>
-                </div>
+           
                 <%--   加入資料表--%>
                 <div class="mt-3">
                 <span class="mr-3">
@@ -74,4 +79,5 @@
             </div>
         </div>
         </div>
+   </div>
 </asp:Content>
