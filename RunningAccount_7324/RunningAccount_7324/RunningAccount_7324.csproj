@@ -105,12 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="backendweb\info.aspx" />
-    <Content Include="backendweb\toolmanage.aspx" />
-    <Content Include="backendweb\toolmanageadd.aspx" />
-    <Content Include="backendweb\user.aspx" />
-    <Content Include="backendweb\useradd.aspx" />
-    <Content Include="backendweb\userpsw.aspx" />
+    <Content Include="backendweb\UserInfo.aspx" />
+    <Content Include="backendweb\AccountingList.aspx" />
+    <Content Include="backendweb\AccountingDetail.aspx" />
+    <Content Include="backendweb\UserList.aspx" />
+    <Content Include="backendweb\UserDetail.aspx" />
+    <Content Include="backendweb\UserPassword.aspx" />
     <Content Include="Content\css\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap-grid.min.css" />
     <Content Include="Content\css\bootstrap-reboot.css" />
@@ -230,9 +230,9 @@
     <Content Include="Content\scss\utilities\_text.scss" />
     <Content Include="Content\scss\utilities\_visibility.scss" />
     <Content Include="Content\scss\vendor\_rfs.scss" />
-    <Content Include="index.aspx" />
+    <Content Include="Default.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="login.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -270,57 +270,57 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="backendweb\info.aspx.cs">
-      <DependentUpon>info.aspx</DependentUpon>
+    <Compile Include="backendweb\UserInfo.aspx.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\info.aspx.designer.cs">
-      <DependentUpon>info.aspx</DependentUpon>
+    <Compile Include="backendweb\UserInfo.aspx.designer.cs">
+      <DependentUpon>UserInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\toolmanage.aspx.cs">
-      <DependentUpon>toolmanage.aspx</DependentUpon>
+    <Compile Include="backendweb\AccountingList.aspx.cs">
+      <DependentUpon>AccountingList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\toolmanage.aspx.designer.cs">
-      <DependentUpon>toolmanage.aspx</DependentUpon>
+    <Compile Include="backendweb\AccountingList.aspx.designer.cs">
+      <DependentUpon>AccountingList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\toolmanageadd.aspx.cs">
-      <DependentUpon>toolmanageadd.aspx</DependentUpon>
+    <Compile Include="backendweb\AccountingDetail.aspx.cs">
+      <DependentUpon>AccountingDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\toolmanageadd.aspx.designer.cs">
-      <DependentUpon>toolmanageadd.aspx</DependentUpon>
+    <Compile Include="backendweb\AccountingDetail.aspx.designer.cs">
+      <DependentUpon>AccountingDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\user.aspx.cs">
-      <DependentUpon>user.aspx</DependentUpon>
+    <Compile Include="backendweb\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\user.aspx.designer.cs">
-      <DependentUpon>user.aspx</DependentUpon>
+    <Compile Include="backendweb\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\useradd.aspx.cs">
-      <DependentUpon>useradd.aspx</DependentUpon>
+    <Compile Include="backendweb\UserDetail.aspx.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\useradd.aspx.designer.cs">
-      <DependentUpon>useradd.aspx</DependentUpon>
+    <Compile Include="backendweb\UserDetail.aspx.designer.cs">
+      <DependentUpon>UserDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="backendweb\userpsw.aspx.cs">
-      <DependentUpon>userpsw.aspx</DependentUpon>
+    <Compile Include="backendweb\UserPassword.aspx.cs">
+      <DependentUpon>UserPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="backendweb\userpsw.aspx.designer.cs">
-      <DependentUpon>userpsw.aspx</DependentUpon>
+    <Compile Include="backendweb\UserPassword.aspx.designer.cs">
+      <DependentUpon>UserPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -344,12 +344,12 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

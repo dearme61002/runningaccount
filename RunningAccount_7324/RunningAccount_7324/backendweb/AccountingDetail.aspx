@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/strat.Master" AutoEventWireup="true" CodeBehind="toolmanageadd.aspx.cs" Inherits="RunningAccount_7324.backendweb.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/strat.Master" AutoEventWireup="true" CodeBehind="AccountingDetail.aspx.cs" Inherits="RunningAccount_7324.backendweb.WebForm3" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

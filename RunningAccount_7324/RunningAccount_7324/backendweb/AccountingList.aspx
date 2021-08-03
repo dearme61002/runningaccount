@@ -1,16 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/strat.Master" AutoEventWireup="true" CodeBehind="info.aspx.cs" Inherits="RunningAccount_7324.backendweb.WebForm1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/strat.Master" AutoEventWireup="true" CodeBehind="AccountingList.aspx.cs" Inherits="RunningAccount_7324.backendweb.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <nav class="navbar  navbar-dark bg-dark">
-        <div class="container px-5">
-            <a class="navbar-brand" href="#">流水帳管理系統-後台</a>
 
-            <asp:Literal ID="Literal1Logined" runat="server"></asp:Literal>
-        </div>
-    </nav>
-    <%--   navbar end--%>
     <div class="container">
         <div class="row mt-5">
             <div class="col-3">
@@ -20,13 +12,23 @@
              
             </div>
             <div class="col-9">
-               <h1>個人資訊</h1>
+               <h1>流水帳管理</h1>
+                <div> 
+                    <div class="row mt-5">
+                          <div class="col-3">
+                              <asp:Button ID="AddButton1" runat="server" Text="Add" />
+                              </div>
+                          <div class="col-9">
+                          <span>小記:</span> <asp:Literal ID="Literal1" runat="server"></asp:Literal><span>元</span>  
+                              </div>
+                        </div>
+                    </div>
              <%--   加入資料表--%>
                 <div>
-                    <asp:Repeater ID="Repeater1" runat="server"></asp:Repeater>
+                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
                 </div>
                  <%--   加入資料表--%>
-                <asp:Button ID="sumitButton1" runat="server" Text="送出" />
+            
             </div>
         </div>
     </div>
