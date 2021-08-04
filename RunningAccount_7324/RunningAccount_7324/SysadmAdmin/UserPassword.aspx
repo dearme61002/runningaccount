@@ -14,7 +14,7 @@
             </div>
             <div class="col-9">
                <h1>會員管理</h1>
-       
+       <asp:Literal ID="Literal1" runat="server"></asp:Literal>
              <%--   加入資料表--%>
           <div class="container mt-3">
                     <div class="row">
@@ -22,7 +22,8 @@
                           帳號
                         </div>
                         <div class="col-9">
-                            <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+                            <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+                            <asp:Literal ID="Literaltrsult" runat="server"></asp:Literal>
                         </div>
 
                     </div>
@@ -64,7 +65,7 @@
                 <%--   加入資料表--%>
                 <div class="mt-3">
                 <span class="mr-3">
-                    <asp:Button ID="saveButton1" runat="server" Text="變更密碼" /></span>
+                    <asp:Button ID="saveButton1" runat="server" Text="變更密碼" OnClick="saveButton1_Click" /></span>
                 </div>
             </div>
                  <%--   加入資料表--%>

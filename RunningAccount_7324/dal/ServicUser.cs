@@ -9,7 +9,7 @@ using modols;
 
 namespace dal
 {
-   public class ServicUser
+    public class ServicUser
     {
         public modols.UserInfo login(modols.UserInfo objectUserInfo)
         {
@@ -29,7 +29,7 @@ namespace dal
                     objectUserInfo.email = sr["Email"].ToString();
                     objectUserInfo.account = sr["Account"].ToString();
                     objectUserInfo.id = sr["ID"].ToString();
-                    objectUserInfo.userlevel= sr["UserLevel"].ToString();
+                    objectUserInfo.userlevel = sr["UserLevel"].ToString();
 
 
                 }
@@ -39,7 +39,7 @@ namespace dal
                 }
                 sr.Close();
 
-                
+
 
             }
             catch (Exception ex)
@@ -51,18 +51,18 @@ namespace dal
 
         }
 
-        public List<modols.AccountNote>   getAccountallNotebyuserid(string id)
+        public List<modols.AccountNote> getAccountallNotebyuserid(string id)
         {
             string sql = "select UserID,Caption,Amount,ActType,CreateDate,Body,ID from AccountingNote where UserID=@userid order by CreateDate desc";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@userid",id)
             };
-           
+
             List<modols.AccountNote> allAccountNote = new List<AccountNote>();
             try
             {
-             SqlDataReader sr=  sqlcanhelp.executeReadesql(sql, sqlParameters, false);
+                SqlDataReader sr = sqlcanhelp.executeReadesql(sql, sqlParameters, false);
                 while (sr.Read())
                 {
                     modols.AccountNote accountNote = new AccountNote();
@@ -82,7 +82,7 @@ namespace dal
                     accountNote.body = sr["Body"].ToString();
                     allAccountNote.Add(accountNote);
                 }
-               
+
                 sr.Close();
             }
             catch (Exception)
@@ -95,14 +95,14 @@ namespace dal
 
         public SqlDataReader getnotebyid(int id)
         {
-            string sql="select Caption,Amount,ActType,Body from AccountingNote where ID=@id";
+            string sql = "select Caption,Amount,ActType,Body from AccountingNote where ID=@id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@id",id)
             };
             try
             {
-            return  sqlcanhelp.executeReadesql(sql, sqlParameters, false);
+                return sqlcanhelp.executeReadesql(sql, sqlParameters, false);
             }
             catch (Exception)
             {
@@ -114,24 +114,26 @@ namespace dal
         public modols.UserInfo getUserbyuserid(string userId)
         {
             string sql = "select Account,Name,Email,UserLevel,CreateDate from UserInfo where ID = CAST( @userid as uniqueidentifier)";
-          
+
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@userid",userId)
             };
             try
             {
-             SqlDataReader sr=   sqlcanhelp.executeReadesql(sql, sqlParameters, false);
+                SqlDataReader sr = sqlcanhelp.executeReadesql(sql, sqlParameters, false);
                 modols.UserInfo objectUserInfo = new UserInfo();
                 if (sr.Read())
                 {
-                    objectUserInfo.account= sr["Account"].ToString();
+                    objectUserInfo.account = sr["Account"].ToString();
                     objectUserInfo.name = sr["Name"].ToString();
                     objectUserInfo.email = sr["Email"].ToString();
-                     if (sr["UserLevel"].ToString() == "1")
+                    if (sr["UserLevel"].ToString() == "1")
                     {
                         objectUserInfo.userlevel = "一般會員";
-                    }else if(sr["UserLevel"].ToString() == "0") {
+                    }
+                    else if (sr["UserLevel"].ToString() == "0")
+                    {
                         objectUserInfo.userlevel = "管理員";
                     }
                     objectUserInfo.createdate = Convert.ToDateTime(sr["CreateDate"]);
@@ -155,7 +157,33 @@ namespace dal
 
         }
 
-       
+        public bool thispasisexitbyOldpasandId(string oldPas, string id)
+        {
+            string sql = "select count(1) from UserInfo  where ID= CAST( @id as uniqueidentifier) and PWD =@pwd";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id",id),
+                new SqlParameter("@pwd",oldPas)
+            };
+            try
+            {
+                int result = Convert.ToInt32(sqlcanhelp.executeScalarsql(sql, sqlParameters, false));
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         public int delectnotebyid(int id)
         {
             string sql = "delete from AccountingNote where ID=@id";
@@ -165,16 +193,16 @@ namespace dal
             };
             try
             {
-             return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+                return sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
             }
             catch (Exception)
             {
 
                 throw;
             }
-            
+
         }
-    public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote )
+        public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote)
         {
             string sql = "insert into AccountingNote(UserID,Caption,Amount,ActType,Body) values(@userid,@caption,@amount,@ActType,@Body)";
             SqlParameter[] sqlParameters = new SqlParameter[]
@@ -187,8 +215,8 @@ namespace dal
             };
             try
             {
-             return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
-                
+                return sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+
             }
             catch (Exception)
             {
@@ -211,7 +239,7 @@ namespace dal
             };
             try
             {
-              return  sqlcanhelp.executeNonQuerysql(sql, parameters, false);
+                return sqlcanhelp.executeNonQuerysql(sql, parameters, false);
             }
             catch (Exception)
             {
@@ -220,7 +248,7 @@ namespace dal
             }
         }
 
-        public int updatenotebyobjectAccountNote(modols.AccountNote accountNote ,int id)
+        public int updatenotebyobjectAccountNote(modols.AccountNote accountNote, int id)
         {
             string sql = "update AccountingNote set Caption = @caption, Amount = @amount, ActType = @acttype, Body = @body where ID = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
@@ -229,14 +257,33 @@ namespace dal
                 new SqlParameter("@acttype",accountNote.acttype),
                 new SqlParameter("@body",accountNote.body),
                 new SqlParameter("@amount",accountNote.amount),
-             
+
                 new SqlParameter("@id",id)
 
             };
             try
             {
-             return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+                return sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int updatePAWbyid(string newpaw,string id)
+        {
+            string sql = "update UserInfo  set PWD=@pwd where ID = CAST(@id as uniqueidentifier)"; 
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@pwd",newpaw),
+            new SqlParameter("@id",id)
+            };
+            try
+            {
+           return sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
             }
             catch (Exception)
             {
@@ -253,7 +300,7 @@ namespace dal
             };
             try
             {
-              return  sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+                return sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
             }
             catch (Exception)
             {
@@ -261,7 +308,7 @@ namespace dal
                 throw;
             }
         }
-        public int updateuserinfobyobjecInfo(modols.UserInfo objectuserInfo,string id)
+        public int updateuserinfobyobjecInfo(modols.UserInfo objectuserInfo, string id)
         {
             string sql = "update UserInfo set Name = @Name, Email = @Email,UserLevel=@UserLeve where ID = CAST( @id as uniqueidentifier)";
             SqlParameter[] sqlParameters = new SqlParameter[]
@@ -274,7 +321,7 @@ namespace dal
             };
             try
             {
-             return  sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+                return sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
             }
             catch (Exception)
             {
@@ -285,11 +332,11 @@ namespace dal
 
         public List<modols.UserInfo> getalluserinfo()
         {
-            string sql= "select ID,Account,Name,Email,UserLevel,CreateDate from UserInfo order by CreateDate desc";
+            string sql = "select ID,Account,Name,Email,UserLevel,CreateDate from UserInfo order by CreateDate desc";
             List<modols.UserInfo> userinfo = new List<UserInfo>();
             try
             {
-     SqlDataReader sr=  sqlcanhelp.executeReadesql(sql);
+                SqlDataReader sr = sqlcanhelp.executeReadesql(sql);
                 while (sr.Read())
                 {
                     UserInfo user = new UserInfo();
@@ -334,23 +381,23 @@ namespace dal
             try
             {
                 object result = sqlcanhelp.executeScalarsql(sql, sqlParameters, false);
-            if (result != null)
-            {
-                return true;
-            }
-            else
-            {
-              
-                return false;
-            }
-             
+                if (result != null)
+                {
+                    return true;
+                }
+                else
+                {
+
+                    return false;
+                }
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-           
+
         }
     }
 

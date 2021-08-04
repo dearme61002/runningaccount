@@ -143,5 +143,10 @@ namespace RunningAccount_7324.backendweb
                 return;
             }
         }
+
+        protected void PSWButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SysadmAdmin/UserPassword.aspx?id="+ Request.QueryString["id"].ToString());
+        }
     }
 }
