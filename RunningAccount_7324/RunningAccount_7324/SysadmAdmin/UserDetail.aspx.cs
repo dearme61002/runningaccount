@@ -24,6 +24,7 @@ namespace RunningAccount_7324.backendweb
                 //傳資料
                 int chang = Convert.ToInt32(Request.QueryString["chang"]);
                 this.Literal3.Text = "<span>" + DateTime.Now.ToString() + "</span>";
+             
                 if (chang == 0)
                 {
                     this.saveButton1.Text = "Add";
@@ -51,19 +52,22 @@ namespace RunningAccount_7324.backendweb
                         this.Literalalter.Text = "<script>alert('跟改帳號失敗')</script>";
                         return;
                     }
-                    this.accountTextBox.Text = objectUserInfo.account;
+                      this.DropDownList1Literalchangelevel.Visible = true;
+                     this.accountTextBox.Text = objectUserInfo.account;
                     this.accountTextBox.Enabled = false;
                     this.TextBox1.Text = objectUserInfo.name;
                     this.TextBox2.Text = objectUserInfo.email;
-                    if(objectUserInfo.userlevel=="一般會員")
+                    if (objectUserInfo.userlevel == "一般會員")
                     {
-                     this.Literal2.Text = "<span>" + objectUserInfo.userlevel + "</span>";
-                    }else if(objectUserInfo.userlevel == "管理員")
-                    {
-                        this.DropDownList1Literalchangelevel.Visible = true;
-                        this.DropDownList1Literalchangelevel.SelectedItem.Text = objectUserInfo.userlevel;
+
+                        this.DropDownList1Literalchangelevel.SelectedValue = "1";
                     }
-                    
+                    else if (objectUserInfo.userlevel == "管理員")
+                    {
+                       
+                        this.DropDownList1Literalchangelevel.SelectedValue = "0";
+                    }
+
                     this.Literal3.Text = "<span>" + objectUserInfo.createdate + "</span>";
                 }
             }
@@ -76,9 +80,10 @@ namespace RunningAccount_7324.backendweb
             objectuserinfo.name = this.TextBox1.Text.Trim();
             objectuserinfo.email = this.TextBox2.Text.Trim();
             objectuserinfo.pwd = this.TextBox4.Text.Trim();
-            objectuserinfo.userlevel = "1";
+          
             if (this.saveButton1.Text == "Add")
             {
+                objectuserinfo.userlevel = "1";
                 if (new dal.ServicUser().isexistaccountbyaccount(objectuserinfo.account))
                 {
                     this.Literalalter.Text = "<script>alert('帳號已存在，請換一個帳號註冊')</script>";
@@ -98,7 +103,23 @@ namespace RunningAccount_7324.backendweb
             }
             else
             {//save
-              
+                modols.UserInfo userlevelismanger = (modols.UserInfo)Session["currentuser"];
+                if (userlevelismanger.userlevel == "1")
+                {
+                    this.Literalalter.Text = "<script>alert('權限不足無法，請更換請換管里長帳號登入')</script>";
+                    return;
+                };
+                objectuserinfo.userlevel = this.DropDownList1Literalchangelevel.SelectedValue;
+                    int result=  new dal.ServicUser().updateuserinfobyobjecInfo(objectuserinfo, Request.QueryString["id"].ToString());
+                if (result > 0)
+                {
+                    Response.Redirect("~/SysadmAdmin/UserList.aspx");
+                }
+                else
+                {
+                    this.Literalalter.Text = "<script>alert('修改帳號失敗')</script>";
+                    return;
+                }
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using modols;
@@ -12,7 +13,7 @@ namespace dal
     {
         public modols.UserInfo login(modols.UserInfo objectUserInfo)
         {
-            string sql = "select Name,Account,Email,ID from UserInfo  where Account= @account and PWD = @pwd";
+            string sql = "select Name,Account,Email,ID,UserLevel from UserInfo  where Account= @account and PWD = @pwd";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@account",objectUserInfo.account.ToString()),
@@ -28,6 +29,7 @@ namespace dal
                     objectUserInfo.email = sr["Email"].ToString();
                     objectUserInfo.account = sr["Account"].ToString();
                     objectUserInfo.id = sr["ID"].ToString();
+                    objectUserInfo.userlevel= sr["UserLevel"].ToString();
 
 
                 }
@@ -152,6 +154,8 @@ namespace dal
             }
 
         }
+
+       
         public int delectnotebyid(int id)
         {
             string sql = "delete from AccountingNote where ID=@id";
@@ -218,7 +222,7 @@ namespace dal
 
         public int updatenotebyobjectAccountNote(modols.AccountNote accountNote ,int id)
         {
-            string sql = "update AccountingNote set Caption = @caption, Amount = @amount, ActType = @acttype, Body = @body where ID=@id";
+            string sql = "update AccountingNote set Caption = @caption, Amount = @amount, ActType = @acttype, Body = @body where ID = @id";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
                 new SqlParameter("@caption",accountNote.caption),
@@ -233,6 +237,28 @@ namespace dal
             {
              return   sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public int updateuserinfobyobjecInfo(modols.UserInfo objectuserInfo,string id)
+        {
+            string sql = "update UserInfo set Name = @Name, Email = @Email,UserLevel=@UserLeve where ID = CAST( @id as uniqueidentifier)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@Name",objectuserInfo.name),
+                new SqlParameter("@Email",objectuserInfo.email),
+                new SqlParameter("@UserLeve",objectuserInfo.userlevel),
+                new SqlParameter("@id",id)
+
+            };
+            try
+            {
+             return  sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
             }
             catch (Exception)
             {
