@@ -126,7 +126,7 @@
                 <%--   加入資料表--%>
                 <div class="mt-3">
                     <span class="mr-3">
-                        <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" /></span>
+                        <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" OnClick="deleteButton2_Click" /></span>
                     <span>
                         <asp:Button ID="PSWButton1" runat="server" Text="前往變更密碼" /></span>
                 </div>

@@ -244,7 +244,23 @@ namespace dal
                 throw;
             }
         }
+        public int deleteinfobyID(string id)
+        {
+            string sql = "delete from UserInfo where ID =CAST(@id as uniqueidentifier)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id",id)
+            };
+            try
+            {
+              return  sqlcanhelp.executeNonQuerysql(sql, sqlParameters, false);
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         public int updateuserinfobyobjecInfo(modols.UserInfo objectuserInfo,string id)
         {
             string sql = "update UserInfo set Name = @Name, Email = @Email,UserLevel=@UserLeve where ID = CAST( @id as uniqueidentifier)";

@@ -129,5 +129,19 @@ namespace RunningAccount_7324.backendweb
             this.Literal3.Text = "<span>" + DateTime.Now.ToString() + "</span>";
 
         }
+
+        protected void deleteButton2_Click(object sender, EventArgs e)
+        {
+          int result=  new dal.ServicUser().deleteinfobyID(Request.QueryString["id"].ToString());
+            if (result > 0)
+            {
+                Response.Redirect("~/SysadmAdmin/UserList.aspx");
+            }
+            else
+            {
+                this.Literalalter.Text = "<script>alert('修改帳號失敗')</script>";
+                return;
+            }
+        }
     }
 }
