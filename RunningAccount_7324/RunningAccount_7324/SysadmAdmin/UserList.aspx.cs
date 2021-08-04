@@ -34,5 +34,21 @@ namespace RunningAccount_7324.backendweb
         {
         Response.Redirect("~/SysadmAdmin/UserDetail.aspx?chang=0");
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/UserInfo.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/AccountingList.aspx");
+         
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/UserList.aspx");
+        }
     }
 }

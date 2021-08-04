@@ -11,7 +11,7 @@
                     <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">個人資訊</asp:LinkButton>
                 </div>
                 <div class="my-4">
-                    <asp:LinkButton ID="LinkButton2" runat="server">流水帳管理</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">流水帳管理</asp:LinkButton>
                 </div>
                 <div class="my-4">
                     <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">會員管理</asp:LinkButton>
@@ -44,7 +44,7 @@
                           Amount
                             </div>
                           <div class="col-9">
-                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><asp:Literal ID="Literal2" runat="server"></asp:Literal>
                         </div>
 
                     </div>
@@ -56,7 +56,7 @@
                             Caption
                         </div>
                         <div class="col-9">
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><asp:Literal ID="Literal3" runat="server"></asp:Literal>
                         </div>
 
                     </div>
@@ -75,7 +75,8 @@
                 <%--   加入資料表--%>
                 <div class="mt-3">
                 <span class="mr-3">
-                    <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" OnClick="deleteButton2_Click" /></span></div>
+                    <asp:Button ID="saveButton1" runat="server" Text="Save" OnClick="saveButton1_Click" /></span><span><asp:Button ID="deleteButton2" runat="server" Text="Delete" OnClick="deleteButton2_Click" /></span>
+                </div>
             </div>
         </div>
         </div>

@@ -8,13 +8,13 @@
         <div class="row mt-5">
             <div class="col-3">
                 <div class="my-4">
-                    <asp:LinkButton ID="LinkButton1" runat="server">個人資訊</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">個人資訊</asp:LinkButton>
                 </div>
                 <div class="my-4">
-                    <asp:LinkButton ID="LinkButton2" runat="server">流水帳管理</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">流水帳管理</asp:LinkButton>
                 </div>
                 <div class="my-4">
-                    <asp:LinkButton ID="LinkButton3" runat="server">會員管理</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">會員管理</asp:LinkButton>
                 </div>
 
             </div>
@@ -22,6 +22,7 @@
                 <h1>會員管理</h1>
                 <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                 <asp:Literal ID="Literalalter" runat="server"></asp:Literal>
+                <asp:Literal ID="Literalchckdata" runat="server"></asp:Literal>
                 <%--   加入資料表--%>
                 <div class="container mt-3">
                     <div class="row">
@@ -135,7 +136,6 @@
         </div>
 
        
-
     </div>
 
 

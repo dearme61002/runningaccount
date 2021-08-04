@@ -399,6 +399,26 @@ namespace dal
             }
 
         }
+
+        public modols.data getdate()
+        {
+            modols.data mydata = new modols.data();
+            string sql = "select top 1 CreateDate from AccountingNote";
+            try
+            {
+              mydata.firstuse= Convert.ToDateTime(sqlcanhelp.executeScalarsql(sql)) ;
+                mydata.lastuse = Convert.ToDateTime(sqlcanhelp.executeScalarsql("select top 1 CreateDate from AccountingNote order by CreateDate desc"));
+                mydata.usecount = Convert.ToInt32(sqlcanhelp.executeScalarsql("select count(1) from AccountingNote"));
+                mydata.userallcount = Convert.ToInt32(sqlcanhelp.executeScalarsql("select count(1) from UserInfo  "));
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return mydata;
+        }
     }
 
 

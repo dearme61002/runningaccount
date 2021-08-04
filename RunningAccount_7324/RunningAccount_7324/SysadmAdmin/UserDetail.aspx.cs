@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -75,14 +76,53 @@ namespace RunningAccount_7324.backendweb
 
         protected void saveButton1_Click(object sender, EventArgs e)
         {
-            modols.UserInfo objectuserinfo = new UserInfo();
-            objectuserinfo.account = this.accountTextBox.Text.Trim();
-            objectuserinfo.name = this.TextBox1.Text.Trim();
-            objectuserinfo.email = this.TextBox2.Text.Trim();
-            objectuserinfo.pwd = this.TextBox4.Text.Trim();
-          
-            if (this.saveButton1.Text == "Add")
+            //date can use
+            Regex rgx = new Regex(@"^[0-9]*$");//只有數字
+            Regex rgx2 = new Regex(@"^[\u4E00-\u9FA5A-Za-z0-9_]+$");//不為空
+            Regex rgxpass = new Regex(@"^.{8,16}$");//pasword\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*
+            Regex emailcheck = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+            if (!rgx2.IsMatch(this.TextBox1.Text.Trim()) || TextBox1.Text.Trim() == "")//不為空
             {
+                this.Literalchckdata.Text = "<strong>姓名不能為空包含所有文字但不包含特殊字元</strong>";
+                return;
+            }
+            if (!emailcheck.IsMatch(this.TextBox2.Text.Trim()))
+            {
+                this.Literalchckdata.Text = "<strong>電子郵件格式不對</strong>";
+                return;
+            }
+            //date can use
+
+            if (this.saveButton1.Text == "Add")
+            { //datacheck
+
+                if (!rgx2.IsMatch(accountTextBox.Text.Trim()) || TextBox2.Text.Trim() == "")//不為空
+                {
+                    this.Literalchckdata.Text = "<strong>帳號不能為空包含所有文字但不包含特殊字元</strong>";
+                    return;
+                }
+                if (!rgxpass.IsMatch(TextBox3.Text.Trim()))//pasword
+                {
+                    this.Literalchckdata.Text = "<strong>密碼長度要8~16位只能包含字母、數字或下滑線</strong>";
+                    return;
+                }
+                if(TextBox3.Text.Trim()!= TextBox4.Text.Trim())
+                {
+                    this.Literalchckdata.Text = "<strong>密碼要一致</strong>";
+                    return;
+                }
+               
+              
+
+
+
+
+                //datacheck
+                modols.UserInfo objectuserinfo = new UserInfo();
+                objectuserinfo.account = this.accountTextBox.Text.Trim();
+                objectuserinfo.name = this.TextBox1.Text.Trim();
+                objectuserinfo.email = this.TextBox2.Text.Trim();
+                objectuserinfo.pwd = this.TextBox4.Text.Trim();
                 objectuserinfo.userlevel = "1";
                 if (new dal.ServicUser().isexistaccountbyaccount(objectuserinfo.account))
                 {
@@ -103,6 +143,11 @@ namespace RunningAccount_7324.backendweb
             }
             else
             {//save
+                modols.UserInfo objectuserinfo = new UserInfo();
+                objectuserinfo.account = this.accountTextBox.Text.Trim();
+                objectuserinfo.name = this.TextBox1.Text.Trim();
+                objectuserinfo.email = this.TextBox2.Text.Trim();
+                objectuserinfo.pwd = this.TextBox4.Text.Trim();
                 modols.UserInfo userlevelismanger = (modols.UserInfo)Session["currentuser"];
                 if (userlevelismanger.userlevel == "1")
                 {
@@ -147,6 +192,21 @@ namespace RunningAccount_7324.backendweb
         protected void PSWButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("/SysadmAdmin/UserPassword.aspx?id="+ Request.QueryString["id"].ToString());
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/UserList.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/AccountingList.aspx");
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/SysadmAdmin/UserInfo.aspx");
         }
     }
 }
