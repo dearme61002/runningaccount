@@ -12,12 +12,21 @@
             </div>
             <div class="col-9">
                <h1>會員管理</h1>
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                 <div> 
-                <asp:Button ID="AddButton1" runat="server" Text="Add" />
+                <asp:Button ID="AddButton1" runat="server" Text="Add" OnClick="AddButton1_Click" />
           </div>
              <%--   加入資料表--%>
                 <div>
-                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="account" HeaderText="帳號" />
+                            <asp:BoundField DataField="email" HeaderText="Email" />
+                            <asp:BoundField DataField="userlevel" HeaderText="等級" />
+                            <asp:BoundField DataField="createdate" HeaderText="建立時間" />
+                            <asp:HyperLinkField DataNavigateUrlFields="id" DataNavigateUrlFormatString="~/SysadmAdmin/UserDetail.aspx?id={0}&amp;chang=1" Text="Edit" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
                  <%--   加入資料表--%>
             

@@ -13,7 +13,7 @@ namespace modols
         public string pwd { get; set; }
         public string name { get; set; }
         public string email { get; set; }
-        public int userlevel { get; set; }
+        public string userlevel { get; set; }
         public DateTime createdate { get; set; }
     }
 }
