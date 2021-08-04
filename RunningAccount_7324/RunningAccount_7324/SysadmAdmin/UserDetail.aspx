@@ -94,6 +94,10 @@
                         </div>
                         <div class="col-9">
                             <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+                            <asp:DropDownList ID="DropDownList1Literalchangelevel" runat="server" Visible="False">
+                                <asp:ListItem Value="0">管理員</asp:ListItem>
+                                <asp:ListItem Value="1">一般會員</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
 
                     </div>

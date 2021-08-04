@@ -44,7 +44,7 @@ namespace RunningAccount_7324.backendweb
                     this.TextBox3.Visible = false;
                     this.TextBox4.Visible = false;
                     this.Literalpas3.Visible = false;
-                    //2021/8/4
+                    //顯示資料
                     modols.UserInfo objectUserInfo = new dal.ServicUser().getUserbyuserid(Request.QueryString["id"].ToString());
                     if (objectUserInfo == null)
                     {
@@ -55,8 +55,15 @@ namespace RunningAccount_7324.backendweb
                     this.accountTextBox.Enabled = false;
                     this.TextBox1.Text = objectUserInfo.name;
                     this.TextBox2.Text = objectUserInfo.email;
-
-                    this.Literal2.Text = "<span>" + objectUserInfo.userlevel + "</span>";
+                    if(objectUserInfo.userlevel=="一般會員")
+                    {
+                     this.Literal2.Text = "<span>" + objectUserInfo.userlevel + "</span>";
+                    }else if(objectUserInfo.userlevel == "管理員")
+                    {
+                        this.DropDownList1Literalchangelevel.Visible = true;
+                        this.DropDownList1Literalchangelevel.SelectedItem.Text = objectUserInfo.userlevel;
+                    }
+                    
                     this.Literal3.Text = "<span>" + objectUserInfo.createdate + "</span>";
                 }
             }
