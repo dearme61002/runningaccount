@@ -34,7 +34,7 @@
                           原密碼
                         </div>
                         <div class="col-9">
-                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox1"  TextMode="Password" runat="server"></asp:TextBox>
                         </div>
 
                     </div>
@@ -45,7 +45,7 @@
                            確認密碼
                         </div>
                         <div class="col-9">
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" TextMode="Password" runat="server"></asp:TextBox>
                         </div>
 
                     </div>
@@ -56,7 +56,7 @@
                             新密碼
                         </div>
                         <div class="col-9">
-                            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox3" TextMode="Password" runat="server"></asp:TextBox>
                         </div>
 
                     </div>

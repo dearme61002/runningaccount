@@ -15,7 +15,7 @@
             <div class="card" >
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><span class="ml-5 mr-3">Account :</span><asp:TextBox ID="AccountTextBox1" runat="server" ></asp:TextBox></li>
-                    <li class="list-group-item"><span class="ml-5 mr-3">PWD  :</span><asp:TextBox ID="PWDTextBox2" runat="server"></asp:TextBox></li>
+                    <li class="list-group-item"><span class="ml-5 mr-3">PWD  :</span><asp:TextBox ID="PWDTextBox2" TextMode="Password" runat="server"></asp:TextBox></li>
                   
                 </ul>
                 <asp:Button ID="LoginButton1" runat="server" Text="Login" class="btn btn-dark" OnClick="LoginButton1_Click"/>

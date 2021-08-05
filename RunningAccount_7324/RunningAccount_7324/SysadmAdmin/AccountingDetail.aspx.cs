@@ -72,7 +72,7 @@ namespace RunningAccount_7324.backendweb
             }
             if (!rgx2.IsMatch(TextBox2.Text.Trim()) || TextBox2.Text.Trim()=="")
             {
-                this.Literal3.Text= "<strong>不能為空包含所有文字但不包含特殊字元</strong>";
+                this.Literal3.Text= "<strong>不能為空</strong>";
                 return;
             }
             //date can use

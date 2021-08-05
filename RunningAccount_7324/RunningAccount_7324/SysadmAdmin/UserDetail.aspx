@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-9">
                             </asp:Literal>
-                            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox3" TextMode="Password" runat="server"></asp:TextBox>
                 <asp:Literal ID="Literalpas2" runat="server">
                         </div>
 
@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-9">
 </asp:Literal>
-                            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TextBox4" TextMode="Password" runat="server"></asp:TextBox>
                             <asp:Literal ID="Literalpas3" runat="server">
                         </div>
 

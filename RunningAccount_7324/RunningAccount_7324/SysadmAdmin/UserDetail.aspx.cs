@@ -83,7 +83,7 @@ namespace RunningAccount_7324.backendweb
             Regex emailcheck = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
             if (!rgx2.IsMatch(this.TextBox1.Text.Trim()) || TextBox1.Text.Trim() == "")//不為空
             {
-                this.Literalchckdata.Text = "<strong>姓名不能為空包含所有文字但不包含特殊字元</strong>";
+                this.Literalchckdata.Text = "<strong>姓名不能為空</strong>";
                 return;
             }
             if (!emailcheck.IsMatch(this.TextBox2.Text.Trim()))
@@ -98,7 +98,7 @@ namespace RunningAccount_7324.backendweb
 
                 if (!rgx2.IsMatch(accountTextBox.Text.Trim()) || TextBox2.Text.Trim() == "")//不為空
                 {
-                    this.Literalchckdata.Text = "<strong>帳號不能為空包含所有文字但不包含特殊字元</strong>";
+                    this.Literalchckdata.Text = "<strong>帳號不能為空</strong>";
                     return;
                 }
                 if (!rgxpass.IsMatch(TextBox3.Text.Trim()))//pasword
