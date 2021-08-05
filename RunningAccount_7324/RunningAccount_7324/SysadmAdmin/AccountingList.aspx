@@ -20,7 +20,7 @@
                               <asp:Button ID="AddButton1" runat="server" Text="Add" OnClick="AddButton1_Click" />
                               </div>
                           <div class="col-9">
-                          <span>小記:</span> <asp:Literal ID="Literal1" runat="server"></asp:Literal><span>元</span>  
+                          <span style="margin-left:105px">小記:</span> <asp:Literal ID="Literal1" runat="server"></asp:Literal><span>元</span>  
                               </div>
                         </div>
                     </div>
