@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace dal
 {
     //我的電腦有寫LOG但怕交作業無法存資料到老師的電腦所以註解掉了
+    //這裡都是連接資料庫的方法也可以利用儲存過程使用喔雖然本次都沒使用但未來可能會用所以設計與練習了一下
    public class sqlcanhelp
     {
         private static string connstring = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
