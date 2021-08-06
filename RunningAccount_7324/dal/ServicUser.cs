@@ -9,8 +9,13 @@ using modols;
 
 namespace dal
 {
+    //應用層這是用來用可以應用的程式庫這裡的成員都是更改資料庫的方法只能被UI層訪問
     public class ServicUser
-    {
+    {/// <summary>
+    /// 登入時會用的的方法
+    /// </summary>
+    /// <param name="objectUserInfo"></param>
+    /// <returns></returns>
         public modols.UserInfo login(modols.UserInfo objectUserInfo)
         {
             string sql = "select Name,Account,Email,ID,UserLevel from UserInfo  where Account= @account and PWD = @pwd";
@@ -50,7 +55,11 @@ namespace dal
             return objectUserInfo;
 
         }
-
+        /// <summary>
+        /// 得到流水帳的資料的方法利用ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public List<modols.AccountNote> getAccountallNotebyuserid(string id)
         {
             string sql = "select UserID,Caption,Amount,ActType,CreateDate,Body,ID from AccountingNote where UserID=@userid order by CreateDate desc";
@@ -92,7 +101,11 @@ namespace dal
             }
             return allAccountNote;
         }
-
+        /// <summary>
+        /// 得到流水帳的方法利用ID但得到的SqlDataReader
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public SqlDataReader getnotebyid(int id)
         {
             string sql = "select Caption,Amount,ActType,Body from AccountingNote where ID=@id";
@@ -110,7 +123,11 @@ namespace dal
                 throw;
             }
         }
-
+        /// <summary>
+        /// 得到用戶的方法id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         public modols.UserInfo getUserbyuserid(string userId)
         {
             string sql = "select Account,Name,Email,UserLevel,CreateDate from UserInfo where ID = CAST( @userid as uniqueidentifier)";
@@ -156,7 +173,12 @@ namespace dal
             }
 
         }
-
+        /// <summary>
+        /// 檢查密碼存在的方法
+        /// </summary>
+        /// <param name="oldPas"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool thispasisexitbyOldpasandId(string oldPas, string id)
         {
             string sql = "select count(1) from UserInfo  where ID= CAST( @id as uniqueidentifier) and PWD =@pwd";
@@ -184,6 +206,11 @@ namespace dal
             }
 
         }
+        /// <summary>
+        /// 刪除筆記的方法
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int delectnotebyid(int id)
         {
             string sql = "delete from AccountingNote where ID=@id";
@@ -202,6 +229,11 @@ namespace dal
             }
 
         }
+        /// <summary>
+        /// 加入筆記的方法
+        /// </summary>
+        /// <param name="objectAccountNote"></param>
+        /// <returns></returns>
         public int addnotebyobjectAccountNote(modols.AccountNote objectAccountNote)
         {
             string sql = "insert into AccountingNote(UserID,Caption,Amount,ActType,Body) values(@userid,@caption,@amount,@ActType,@Body)";
@@ -225,7 +257,11 @@ namespace dal
             }
 
         }
-
+        /// <summary>
+        /// 加入客戶的方法
+        /// </summary>
+        /// <param name="objectuserinfo"></param>
+        /// <returns></returns>
         public int adduserinfobyuserinfo(modols.UserInfo objectuserinfo)
         {
             string sql = "insert into UserInfo(Account,PWD,Name,Email,UserLevel) values(@Account,@PWD,@Name,@Email,@UserLevel)";
@@ -247,7 +283,12 @@ namespace dal
                 throw;
             }
         }
-
+        /// <summary>
+        /// 跟改筆記的方法
+        /// </summary>
+        /// <param name="accountNote"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int updatenotebyobjectAccountNote(modols.AccountNote accountNote, int id)
         {
             string sql = "update AccountingNote set Caption = @caption, Amount = @amount, ActType = @acttype, Body = @body where ID = @id";
@@ -272,7 +313,12 @@ namespace dal
                 throw;
             }
         }
-
+        /// <summary>
+        /// 跟改密碼的方法
+        /// </summary>
+        /// <param name="newpaw"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int updatePAWbyid(string newpaw,string id)
         {
             string sql = "update UserInfo  set PWD=@pwd where ID = CAST(@id as uniqueidentifier)"; 
@@ -291,6 +337,11 @@ namespace dal
                 throw;
             }
         }
+        /// <summary>
+        /// 刪除客戶的方法
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int deleteinfobyID(string id)
         {
             string sql = "delete from UserInfo where ID =CAST(@id as uniqueidentifier)";
@@ -308,6 +359,12 @@ namespace dal
                 throw;
             }
         }
+        /// <summary>
+        /// 跟改客戶資料的方法
+        /// </summary>
+        /// <param name="objectuserInfo"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int updateuserinfobyobjecInfo(modols.UserInfo objectuserInfo, string id)
         {
             string sql = "update UserInfo set Name = @Name, Email = @Email,UserLevel=@UserLeve where ID = CAST( @id as uniqueidentifier)";
@@ -329,7 +386,10 @@ namespace dal
                 throw;
             }
         }
-
+        /// <summary>
+        /// 得到所有客戶的資料的方法
+        /// </summary>
+        /// <returns></returns>
         public List<modols.UserInfo> getalluserinfo()
         {
             string sql = "select ID,Account,Name,Email,UserLevel,CreateDate from UserInfo order by CreateDate desc";
@@ -370,7 +430,11 @@ namespace dal
 
 
         }
-
+        /// <summary>
+        /// 檢查客戶帳號存在的方法
+        /// </summary>
+        /// <param name="account"></param>
+        /// <returns></returns>
         public bool isexistaccountbyaccount(string account)
         {
             string sql = "select  Account  from UserInfo where Account=@account";
@@ -399,7 +463,10 @@ namespace dal
             }
 
         }
-
+        /// <summary>
+        /// 得到所有統計好的方法
+        /// </summary>
+        /// <returns></returns>
         public modols.data getdate()
         {
             modols.data mydata = new modols.data();
