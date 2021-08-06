@@ -12,7 +12,7 @@ namespace dal
     //我的電腦有寫LOG但怕交作業無法存資料到老師的電腦所以註解掉了
    public class sqlcanhelp
     {
-        private static string connstring = ConfigurationManager.ConnectionStrings["connstring"].ToString();
+        private static string connstring = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
         #region 不帶參數的連接資料庫
         public static int executeNonQuerysql(string sql)
         {
