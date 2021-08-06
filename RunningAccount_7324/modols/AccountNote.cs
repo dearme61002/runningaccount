@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace modols
 {
+    /// <summary>
+    /// 這裡是實體從這是AccountNote的物件
+    /// </summary>
     public class AccountNote
     {
         public int id { get; set; }

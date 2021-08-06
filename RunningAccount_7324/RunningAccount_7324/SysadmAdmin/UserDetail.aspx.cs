@@ -151,7 +151,7 @@ namespace RunningAccount_7324.backendweb
                 modols.UserInfo userlevelismanger = (modols.UserInfo)Session["currentuser"];
                 if (userlevelismanger.userlevel == "1")
                 {
-                    this.Literalalter.Text = "<script>alert('權限不足無法，請更換請換管里長帳號登入')</script>";
+                    this.Literalalter.Text = "<script>alert('權限不足無法更改，請更換管理員帳號登入')</script>";
                     return;
                 };
                 objectuserinfo.userlevel = this.DropDownList1Literalchangelevel.SelectedValue;
